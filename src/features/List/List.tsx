@@ -5,76 +5,74 @@ const List = () => {
   return (
     <>
       <ListWrap>
-        <CardList>
-          <Card>
-            <CardDate>2022.07.05</CardDate>
-            <CardTitle>제목</CardTitle>
-            <CardContent>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </CardContent>
-            <CardTagWrap>
-              <CardTag>할일</CardTag>
-            </CardTagWrap>
-          </Card>
-          <Card>
-            <CardDate>2022.07.05</CardDate>
-            <CardTitle>제목</CardTitle>
-            <CardContent>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </CardContent>
-            <CardTagWrap>
-              <CardTag>운동</CardTag>
-              <CardTag>할일</CardTag>
-            </CardTagWrap>
-          </Card>
-          <Card>
-            <CardDate>2022.07.05</CardDate>
-            <CardTitle>제목</CardTitle>
-            <CardContent>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </CardContent>
-            <CardTagWrap>
-              <CardTag>루틴</CardTag>
-              <CardTag>할일</CardTag>
-            </CardTagWrap>
-          </Card>
-          <Card>
-            <CardDate>2022.07.05</CardDate>
-            <CardTitle>제목</CardTitle>
-            <CardContent>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </CardContent>
-            <CardTagWrap>
-              <CardTag>루틴</CardTag>
-              <CardTag>운동</CardTag>
-              <CardTag>할일</CardTag>
-            </CardTagWrap>
-          </Card>
-        </CardList>
+        <Card>
+          <CardDate>2022.07.05</CardDate>
+          <CardTitle>제목</CardTitle>
+          <CardContent>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </CardContent>
+          <CardTagWrap>
+            <CardTag>할일</CardTag>
+          </CardTagWrap>
+        </Card>
+        <Card>
+          <CardDate>2022.07.05</CardDate>
+          <CardTitle>제목</CardTitle>
+          <CardContent>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </CardContent>
+          <CardTagWrap>
+            <CardTag>운동</CardTag>
+            <CardTag>할일</CardTag>
+          </CardTagWrap>
+        </Card>
+        <Card>
+          <CardDate>2022.07.05</CardDate>
+          <CardTitle>제목</CardTitle>
+          <CardContent>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </CardContent>
+          <CardTagWrap>
+            <CardTag>루틴</CardTag>
+            <CardTag>할일</CardTag>
+          </CardTagWrap>
+        </Card>
+        <Card>
+          <CardDate>2022.07.05</CardDate>
+          <CardTitle>제목</CardTitle>
+          <CardContent>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </CardContent>
+          <CardTagWrap>
+            <CardTag>루틴</CardTag>
+            <CardTag>운동</CardTag>
+            <CardTag>할일</CardTag>
+          </CardTagWrap>
+        </Card>
       </ListWrap>
     </>
   );
@@ -82,14 +80,9 @@ const List = () => {
 
 export default List;
 
-const ListWrap = styled.div`
-  border-top: 1px solid #e9e9e9;
-`;
-
-const CardList = styled.ul`
+const ListWrap = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 `;
 
 const Card = styled.li`
@@ -97,6 +90,10 @@ const Card = styled.li`
   border: 1px solid #e9e9e9;
   border-radius: 10px;
   margin-bottom: 30px;
+  margin-right: 30px;
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
 `;
 const CardDate = styled.p`
   border-bottom: 1px solid #e9e9e9;

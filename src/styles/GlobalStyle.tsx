@@ -9,8 +9,8 @@ ${reset}
 
 
   body {
-    line-height: 1;
-    font-size:16px;
+    line-height: 1.5;
+    font-size:14px;
     background-color: #fff;
   }
 

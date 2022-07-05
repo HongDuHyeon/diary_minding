@@ -16,6 +16,6 @@ export default Dashboard;
 
 const DashboardWrap = styled.div`
   height: 80vh;
-
+  padding: 20px;
   overflow-y: auto;
 `;

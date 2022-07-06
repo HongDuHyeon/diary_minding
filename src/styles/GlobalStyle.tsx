@@ -33,6 +33,13 @@ ${reset}
     border-spacing: 0;
   }
 
+  input,
+  select,
+  textarea,
+  button {
+    vertical-align: middle;
+  }
+
   a {
     text-decoration: none;
   }

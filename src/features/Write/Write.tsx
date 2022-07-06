@@ -5,7 +5,7 @@ import Tag from './components/Tag';
 
 let nextId = 1;
 
-interface iWrite {
+export interface iWrite {
   date?: number | string;
   title: string;
   text: string;
@@ -121,7 +121,7 @@ const WriteForm = styled.form`
   position: relative;
 `;
 
-const WriteButtonWrap = styled.div`
+export const WriteButtonWrap = styled.div`
   position: absolute;
   right: 0;
   top: 0;
@@ -133,7 +133,7 @@ const WriteSubmitButton = styled.button`
   border-radius: 8px;
 `;
 
-const WriteExitButton = styled(WriteSubmitButton)`
+export const WriteExitButton = styled(WriteSubmitButton)`
   margin-left: 10px;
 `;
 

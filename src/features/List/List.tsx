@@ -1,78 +1,50 @@
-import React from 'react';
+import { text } from 'node:stream/consumers';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { iTag } from '../Write/Write';
+
+interface iCardList {
+  id: number;
+  date: number | string;
+  title: string;
+  text: string;
+  tag: iTagData[];
+}
+
+interface iTagData {
+  id: number;
+  tagName: string;
+}
 
 const List = () => {
+  const [cardList, setCardList] = useState<iCardList[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/diary', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => setCardList(data));
+  }, []);
+
+  console.log(cardList);
   return (
     <>
       <ListWrap>
-        <Card>
-          <CardDate>2022.07.05</CardDate>
-          <CardTitle>제목</CardTitle>
-          <CardContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </CardContent>
-          <CardTagWrap>
-            <CardTag>할일</CardTag>
-          </CardTagWrap>
-        </Card>
-        <Card>
-          <CardDate>2022.07.05</CardDate>
-          <CardTitle>제목</CardTitle>
-          <CardContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </CardContent>
-          <CardTagWrap>
-            <CardTag>운동</CardTag>
-            <CardTag>할일</CardTag>
-          </CardTagWrap>
-        </Card>
-        <Card>
-          <CardDate>2022.07.05</CardDate>
-          <CardTitle>제목</CardTitle>
-          <CardContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </CardContent>
-          <CardTagWrap>
-            <CardTag>루틴</CardTag>
-            <CardTag>할일</CardTag>
-          </CardTagWrap>
-        </Card>
-        <Card>
-          <CardDate>2022.07.05</CardDate>
-          <CardTitle>제목</CardTitle>
-          <CardContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </CardContent>
-          <CardTagWrap>
-            <CardTag>루틴</CardTag>
-            <CardTag>운동</CardTag>
-            <CardTag>할일</CardTag>
-          </CardTagWrap>
-        </Card>
+        {cardList &&
+          cardList.reverse().map(list => (
+            <Card key={list.id}>
+              <CardDate>{list.date}</CardDate>
+              <CardTitle>{list.title}</CardTitle>
+              <CardContent>{list.text}</CardContent>
+              <CardTagWrap>
+                {list.tag &&
+                  list.tag.map(tag => (
+                    <CardTag key={tag.id}>{tag.tagName}</CardTag>
+                  ))}
+              </CardTagWrap>
+            </Card>
+          ))}
       </ListWrap>
     </>
   );

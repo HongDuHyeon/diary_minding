@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { iTag } from '../Write/Write';
 
 interface iCardList {
   id: number;
   date: number | string;
   title: string;
   text: string;
-  tag: iTagData[];
-}
-
-export interface iTagData {
-  id: number;
-  tagName: string;
+  tag: iTag[];
 }
 
 const List = () => {
@@ -50,7 +46,7 @@ const List = () => {
               <CardTagWrap>
                 {list.tag &&
                   list.tag.map(tag => (
-                    <CardTag key={tag.id}>{tag.tagName}</CardTag>
+                    <CardTag key={tag.id}>{tag.text}</CardTag>
                   ))}
               </CardTagWrap>
             </Card>

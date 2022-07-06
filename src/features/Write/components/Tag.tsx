@@ -19,6 +19,7 @@ const Tag = ({ handleTag, tag }: tagProps) => {
     e.preventDefault();
     handleTag(tagName);
     setTagName('');
+    console.log(tagName);
   };
 
   return (

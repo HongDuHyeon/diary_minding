@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { iTagData, CardTag } from '../List/List';
-import { WriteButtonWrap, WriteExitButton } from '../Write/Write';
+import { CardTag } from '../List/List';
+import { iTag, WriteButtonWrap, WriteExitButton } from '../Write/Write';
 
 interface iFeed {
   date: string;
   title: string;
   text: string;
-  tag: iTagData[];
+  tag: iTag[];
 }
 
 const Detail = () => {
@@ -45,7 +45,7 @@ const Detail = () => {
           <DetailText>{text}</DetailText>
           <DetailTagWrap>
             {tag &&
-              tag.map(list => <CardTag key={list.id}>{list.tagName}</CardTag>)}
+              tag.map(list => <CardTag key={list.id}>{list.text}</CardTag>)}
           </DetailTagWrap>
         </DetailContents>
       </DetailWrap>

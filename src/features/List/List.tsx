@@ -124,7 +124,7 @@ const CardTagWrap = styled.ul`
   padding: 10px 20px;
 `;
 
-const CardTag = styled.li`
+export const CardTag = styled.li`
   border: 1px solid #26de81;
   border-radius: 8px;
   padding: 5px 10px;

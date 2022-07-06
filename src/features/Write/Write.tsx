@@ -1,27 +1,114 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { CardTag } from '../List/List';
+import Tag from './components/Tag';
+
+let nextId = 1;
+
+interface iWrite {
+  date?: number | string;
+  title: string;
+  text: string;
+}
+
+export interface iTag {
+  id: number | string;
+  text: string;
+}
 
 const Write = () => {
+  const [write, setWrite] = useState<iWrite>({
+    date: '',
+    title: '',
+    text: '',
+  });
+  const [tag, setTag] = useState<iTag[]>([]);
+  const navigate = useNavigate();
+
+  const year = new Date().getFullYear();
+  const month = new Date().getMonth() + 1;
+  const day = new Date().getDate();
+
+  const goToList = () => {
+    navigate('/');
+  };
+
+  const onDiaryPost = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    fetch('http://localhost:4000/diary', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        date: write.date,
+        title: write.title,
+        text: write.text,
+        tag: tag,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res) {
+          alert('새로운 일기가 추가 되었습니다.');
+          handleWriteReset();
+          goToList();
+        }
+      });
+  };
+
+  useEffect(() => {
+    setWrite(prev => ({ ...prev, date: `${year}.${month}.${day}` }));
+  }, []);
+
+  const handleWriteInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setWrite(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleWriteText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { value, name } = e.target;
+    setWrite(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleTag = (text: string) => {
+    if (text === '') {
+      return;
+    } else {
+      const tagList = {
+        id: nextId,
+        text,
+      };
+      setTag(tag => tag.concat(tagList));
+      nextId++;
+    }
+  };
+  const handleWriteReset = () => {
+    setWrite(prev => ({ ...prev, title: '', text: '' }));
+    setTag([]);
+  };
+
   return (
     <>
       <WriteForm>
         <WriteButtonWrap>
-          <WriteSubmitButton>적용하기</WriteSubmitButton>
+          <WriteSubmitButton onClick={onDiaryPost}>만들기</WriteSubmitButton>
+          <WriteExitButton onClick={goToList}>나가기</WriteExitButton>
         </WriteButtonWrap>
         <WriteContents>
-          <WriteDate>2022.07.06</WriteDate>
-          <WriteTitle placeholder="제목을 입력하세요" />
-          <WriteText />
-          <TagWrap>
-            <TagInput placeholder="태그를 입력해주세요" />
-            <TagButton>적용</TagButton>
-            <WriteTagWrap>
-              <CardTag>태그1</CardTag>
-              <CardTag>태그2</CardTag>
-              <CardTag>태그3</CardTag>
-            </WriteTagWrap>
-          </TagWrap>
+          <WriteDate>{write.date}</WriteDate>
+          <WriteTitle
+            name="title"
+            value={write.title}
+            onChange={handleWriteInput}
+            placeholder="제목을 입력하세요"
+          />
+          <WriteText
+            name="text"
+            value={write.text}
+            onChange={handleWriteText}
+          />
+          <Tag handleTag={handleTag} tag={tag} />
         </WriteContents>
       </WriteForm>
     </>
@@ -46,6 +133,10 @@ const WriteSubmitButton = styled.button`
   border-radius: 8px;
 `;
 
+const WriteExitButton = styled(WriteSubmitButton)`
+  margin-left: 10px;
+`;
+
 const WriteContents = styled.div``;
 
 const WriteDate = styled.p`
@@ -63,25 +154,6 @@ const WriteTitle = styled.input`
   outline: none;
 `;
 
-const TagWrap = styled.div`
-  margin-top: 20px;
-`;
-
-const TagInput = styled.input`
-  padding: 5px 10px;
-  border: 1px solid #c9c9c9;
-  border-radius: 8px;
-  line-height: 26px;
-`;
-
-const TagButton = styled.button`
-  padding: 5px 10px;
-  margin-left: 10px;
-  border: 1px solid #c9c9c9;
-  border-radius: 8px;
-  line-height: 26px;
-`;
-
 const WriteText = styled.textarea`
   width: 100%;
   min-height: 300px;
@@ -89,9 +161,6 @@ const WriteText = styled.textarea`
   padding: 5px 10px;
   border: 1px solid #c9c9c9;
   border-radius: 8px;
+  font-family: inherit;
   resize: none;
-`;
-const WriteTagWrap = styled.ul`
-  display: flex;
-  margin-top: 20px;
 `;

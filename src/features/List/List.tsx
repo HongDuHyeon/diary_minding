@@ -1,7 +1,5 @@
-import { text } from 'node:stream/consumers';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { iTag } from '../Write/Write';
 
 interface iCardList {
   id: number;
@@ -27,7 +25,6 @@ const List = () => {
       .then(data => setCardList(data));
   }, []);
 
-  console.log(cardList);
   return (
     <>
       <ListWrap>

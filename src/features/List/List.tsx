@@ -10,7 +10,7 @@ interface iCardList {
   tag: iTagData[];
 }
 
-interface iTagData {
+export interface iTagData {
   id: number;
   tagName: string;
 }
@@ -31,8 +31,15 @@ const List = () => {
     navigate(`/detail/${id}`);
   };
 
+  const goToWrite = () => {
+    navigate('/write');
+  };
+
   return (
     <>
+      <ListButtonWrap>
+        <ListButton onClick={goToWrite}>일기 쓰기</ListButton>
+      </ListButtonWrap>
       <ListWrap>
         {cardList &&
           cardList.reverse().map(list => (
@@ -54,6 +61,17 @@ const List = () => {
 };
 
 export default List;
+
+const ListButtonWrap = styled.div`
+  text-align: right;
+`;
+
+const ListButton = styled.button`
+  padding: 10px 20px;
+  border: 1px solid #e9e9e9;
+  border-radius: 8px;
+  margin-bottom: 20px;
+`;
 
 const ListWrap = styled.ul`
   display: flex;

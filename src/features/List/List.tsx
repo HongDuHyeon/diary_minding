@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface iCardList {
@@ -16,6 +17,7 @@ interface iTagData {
 
 const List = () => {
   const [cardList, setCardList] = useState<iCardList[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:4000/diary', {
@@ -25,12 +27,16 @@ const List = () => {
       .then(data => setCardList(data));
   }, []);
 
+  const goToDetail = (id: number) => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <>
       <ListWrap>
         {cardList &&
           cardList.reverse().map(list => (
-            <Card key={list.id}>
+            <Card key={list.id} onClick={() => goToDetail(list.id)}>
               <CardDate>{list.date}</CardDate>
               <CardTitle>{list.title}</CardTitle>
               <CardContent>{list.text}</CardContent>
@@ -60,6 +66,7 @@ const Card = styled.li`
   border-radius: 10px;
   margin-bottom: 30px;
   margin-right: 30px;
+  cursor: pointer;
   &:nth-child(3n) {
     margin-right: 0;
   }

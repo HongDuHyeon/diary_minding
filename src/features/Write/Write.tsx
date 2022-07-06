@@ -35,6 +35,20 @@ const Write = () => {
 
   const onDiaryPost = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    switch (true) {
+      case write.title === '':
+        return alert('제목을 꼭 적어주세요 !');
+      case write.text === '':
+        return alert('본문을 꼭 적어주세요 !');
+      case tag.length < 1:
+        return alert('태그를 1개 이상 작성해주세요 !');
+      case tag.length >= 4:
+        alert('태그는 3개까지 작성됩니다 !');
+        return setTag([]);
+      default:
+        break;
+    }
+
     fetch('http://localhost:4000/diary', {
       method: 'POST',
       headers: {

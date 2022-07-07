@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { iTag } from '../Write/Write';
+import { TagInput } from '../Write/components/Tag';
 
 interface iCardList {
   id: number;
@@ -13,6 +14,7 @@ interface iCardList {
 
 const List = () => {
   const [cardList, setCardList] = useState<iCardList[]>([]);
+  const [tagValue, setTagValue] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,14 +33,29 @@ const List = () => {
     navigate('/write');
   };
 
+  const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTagValue(e.target.value);
+  };
+
+  const mappingList = cardList.filter(tagList => {
+    if (tagValue === '') {
+      return tagList;
+    }
+    return tagList.tag.find(list => list.text === tagValue);
+  });
+
   return (
     <>
-      <ListButtonWrap>
+      <ListUtilWrap>
+        <TagInput
+          onChange={onChangeSearch}
+          placeholder="태그를 검색해보세요 !"
+        />
         <ListButton onClick={goToWrite}>일기 쓰기</ListButton>
-      </ListButtonWrap>
+      </ListUtilWrap>
       <ListWrap>
-        {cardList &&
-          cardList.reverse().map(list => (
+        {mappingList &&
+          mappingList.reverse().map(list => (
             <Card key={list.id} onClick={() => goToDetail(list.id)}>
               <CardDate>{list.date}</CardDate>
               <CardTitle>{list.title}</CardTitle>
@@ -58,8 +75,9 @@ const List = () => {
 
 export default List;
 
-const ListButtonWrap = styled.div`
-  text-align: right;
+const ListUtilWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ListButton = styled.button`

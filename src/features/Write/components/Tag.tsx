@@ -46,7 +46,8 @@ const TagWrap = styled.div`
   margin-top: 20px;
 `;
 
-const TagInput = styled.input`
+export const TagInput = styled.input`
+  height: 38px;
   padding: 5px 10px;
   border: 1px solid #c9c9c9;
   border-radius: 8px;

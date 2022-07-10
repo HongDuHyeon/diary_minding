@@ -18,9 +18,7 @@ const List = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:4000/diary', {
-      method: 'GET',
-    })
+    fetch('http://localhost:4000/diary')
       .then(res => res.json())
       .then(data => setCardList(data));
   }, []);

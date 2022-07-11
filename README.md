@@ -3,4 +3,7 @@
 ## 사용 스택
 - React (CRA), TypeScript, Styled-components
 - server : json server (for CRUD)
-- 명령어 json-server --watch db.json --port 4000를 입력해주시면 서버가 켜집니다.
+- 터미널 명령어 
+npm install -g json-server 
+npx json-server db.json -—port 4000
+해주시면 서버가 열립니다 !!

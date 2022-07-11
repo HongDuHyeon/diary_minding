@@ -54,25 +54,31 @@ const Detail = () => {
 };
 
 export default Detail;
+
 const DetailWrap = styled.div`
   position: relative;
 `;
+
 const DetailContents = styled.div`
   width: 700px;
   padding: 20px;
   margin: 0 auto;
   border: 1px solid #e9e9e9;
 `;
+
 const DetailDate = styled.p`
   font-size: 20px;
 `;
+
 const DetailTitle = styled.div`
   font-size: 26px;
   margin-top: 20px;
 `;
+
 const DetailText = styled.div`
   font-size: 16px;
 `;
+
 const DetailTagWrap = styled.div`
   display: flex;
   border-top: 1px solid #e9e9e9;

@@ -33,8 +33,7 @@ const Write = () => {
     navigate('/');
   };
 
-  const onDiaryPost = (e: React.FormEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const onDiaryPost = () => {
     switch (true) {
       case write.title === '':
         return alert('제목을 꼭 적어주세요 !');
@@ -103,29 +102,23 @@ const Write = () => {
   };
 
   return (
-    <>
-      <WriteForm>
-        <WriteButtonWrap>
-          <WriteSubmitButton onClick={onDiaryPost}>만들기</WriteSubmitButton>
-          <WriteExitButton onClick={goToList}>나가기</WriteExitButton>
-        </WriteButtonWrap>
-        <WriteContents>
-          <WriteDate>{write.date}</WriteDate>
-          <WriteTitle
-            name="title"
-            value={write.title}
-            onChange={handleWriteInput}
-            placeholder="제목을 입력하세요"
-          />
-          <WriteText
-            name="text"
-            value={write.text}
-            onChange={handleWriteText}
-          />
-          <Tag handleTag={handleTag} tag={tag} />
-        </WriteContents>
-      </WriteForm>
-    </>
+    <WriteForm>
+      <WriteButtonWrap>
+        <WriteSubmitButton onClick={onDiaryPost}>만들기</WriteSubmitButton>
+        <WriteExitButton onClick={goToList}>나가기</WriteExitButton>
+      </WriteButtonWrap>
+      <WriteContents>
+        <WriteDate>{write.date}</WriteDate>
+        <WriteTitle
+          name="title"
+          value={write.title}
+          onChange={handleWriteInput}
+          placeholder="제목을 입력하세요"
+        />
+        <WriteText name="text" value={write.text} onChange={handleWriteText} />
+        <Tag handleTag={handleTag} tag={tag} />
+      </WriteContents>
+    </WriteForm>
   );
 };
 

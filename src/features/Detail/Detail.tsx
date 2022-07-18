@@ -34,22 +34,19 @@ const Detail = () => {
   };
 
   return (
-    <>
-      <DetailWrap>
-        <WriteButtonWrap>
-          <WriteExitButton onClick={goToList}>나가기</WriteExitButton>
-        </WriteButtonWrap>
-        <DetailContents>
-          <DetailDate>{date}</DetailDate>
-          <DetailTitle>{title}</DetailTitle>
-          <DetailText>{text}</DetailText>
-          <DetailTagWrap>
-            {tag &&
-              tag.map(list => <CardTag key={list.id}>{list.text}</CardTag>)}
-          </DetailTagWrap>
-        </DetailContents>
-      </DetailWrap>
-    </>
+    <DetailWrap>
+      <WriteButtonWrap>
+        <WriteExitButton onClick={goToList}>나가기</WriteExitButton>
+      </WriteButtonWrap>
+      <DetailContents>
+        <DetailDate>{date}</DetailDate>
+        <DetailTitle>{title}</DetailTitle>
+        <DetailText>{text}</DetailText>
+        <DetailTagWrap>
+          {tag && tag.map(list => <CardTag key={list.id}>{list.text}</CardTag>)}
+        </DetailTagWrap>
+      </DetailContents>
+    </DetailWrap>
   );
 };
 

@@ -3,11 +3,9 @@ import styled from 'styled-components';
 
 const Nav = () => {
   return (
-    <>
-      <HeaderWrap>
-        <HeaderTitle>Header</HeaderTitle>
-      </HeaderWrap>
-    </>
+    <HeaderWrap>
+      <HeaderTitle>Header</HeaderTitle>
+    </HeaderWrap>
   );
 };
 

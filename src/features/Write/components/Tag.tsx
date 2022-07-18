@@ -23,20 +23,18 @@ const Tag = ({ handleTag, tag }: tagProps) => {
   };
 
   return (
-    <>
-      <TagWrap>
-        <TagInput
-          name="tag"
-          value={tagName}
-          placeholder="태그를 입력해주세요"
-          onChange={handleTagChange}
-        />
-        <TagButton onClick={onTagSubmit}>적용</TagButton>
-        <WriteTagWrap>
-          {tag && tag.map(list => <CardTag key={list.id}>{list.text}</CardTag>)}
-        </WriteTagWrap>
-      </TagWrap>
-    </>
+    <TagWrap>
+      <TagInput
+        name="tag"
+        value={tagName}
+        placeholder="태그를 입력해주세요"
+        onChange={handleTagChange}
+      />
+      <TagButton onClick={onTagSubmit}>적용</TagButton>
+      <WriteTagWrap>
+        {tag && tag.map(list => <CardTag key={list.id}>{list.text}</CardTag>)}
+      </WriteTagWrap>
+    </TagWrap>
   );
 };
 

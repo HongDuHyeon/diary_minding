@@ -4,11 +4,9 @@ import List from '../List/List';
 
 const Dashboard = () => {
   return (
-    <>
-      <DashboardWrap>
-        <List />
-      </DashboardWrap>
-    </>
+    <DashboardWrap>
+      <List />
+    </DashboardWrap>
   );
 };
 
